@@ -23,39 +23,9 @@ public abstract class IPLocator {
 	private String code;
 	private float longitude;
 	private float latitude;
-	
-	/**
-	 * This is a singleton class therefore make the constructor private 
-	 */
-	IPLocator() {} 
 
-	/**
-	 * Other than the getters & setters, this is the only method visible to the outside world  
-	 * 
-	 * @param ip The ip address to be located
-	 * @return IPLocator instance
-	 * @throws Exception in case of any error/exception
-	 */
-	public static IPLocator locate(String ip) throws Exception {
-	/*
-		String url = HOSTIP_LOOKUP_URL + ip;
-		URL u = new URL(url);
-		IPLocator ipl = new IPLocator();
 
-		String response = ipl.getContent(u);
-		JSONParser parser=new JSONParser();
-		Object obj = parser.parse(response);
-        JSONObject map = (JSONObject)obj;
-        ipl.setIP(ip);
-        ipl.setCountry((String)map.get(KEY_COUNTRY));
-        ipl.setCode((String)map.get(KEY_CODE));
-        ipl.setCity((String)map.get(KEY_CITY));
-        	
-		return ipl;
-	*/	
-		return null;
-	}	
-	
+	IPLocator() {}
 	
 
 	/**
@@ -175,25 +145,5 @@ public abstract class IPLocator {
     public String getIP(){
     	return this.ip;
     }
-	
 
-	/**
-	 * For unit testing purposes only
-	 * 
-	 * @param args
-	 */
-	public static void main(String args[]) {
-		
-		try {
-			IPLocator ipl = IPLocator.locate("12.215.42.19");
-			System.out.println("City="+ipl.getCity());
-			System.out.println("Country="+ipl.getCountry());
-			//System.out.println("Latitude="+ipl.getLatitude());
-			//System.out.println("Longitude="+ipl.getLongitude());
-			System.out.println("Code=" + ipl.getCode());
-		}
-		catch(Exception e) {
-			e.printStackTrace();
-		}
-	}
 }
